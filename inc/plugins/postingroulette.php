@@ -68,23 +68,23 @@ function postingroulette_activate()
         'title' => 'postingroulette',
         'template' => $db->escape_string('<html>
 <head>
-<title>{$mybb->settings['bbname']} - Posting Roulette</title>
+<title>{$mybb->settings[\'bbname\']} - Posting Roulette</title>
 {$headerinclude}
 </head>
 <body>
 {$header}<div class="roulette">
-<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder">
+<table border="0" cellspacing="{$theme[\'borderwidth\']}" cellpadding="{$theme[\'tablespace\']}" class="tborder">
 <tr>
 <td class="thead"><h1>Posting Roulette</h1></td>
 </tr>
 <tr>
 <td class="trow1" align="center">
 
-  <button class="tablinks" onclick="roulette(event, 'Willkommen')" id="defaultOpen">Willkommen</button>
-  <button class="tablinks" onclick="roulette(event, 'Schüler')">Schüler</button>
-	  <button class="tablinks" onclick="roulette(event, 'Studenten')">Studenten</button>
-  <button class="tablinks" onclick="roulette(event, 'Erwachsene')">Erwachsene</button>
-		  <button class="tablinks" onclick="roulette(event, 'Beides')">Keine Präferenz</button>
+  <button class="tablinks" onclick="roulette(event, \'Willkommen\')" id="defaultOpen">Willkommen</button>
+  <button class="tablinks" onclick="roulette(event, \'Schüler\')">Schüler</button>
+	  <button class="tablinks" onclick="roulette(event, \'Studenten\')">Studenten</button>
+  <button class="tablinks" onclick="roulette(event, \'Erwachsene\')">Erwachsene</button>
+		  <button class="tablinks" onclick="roulette(event, \'Beides\')">Keine Präferenz</button>
 
 </td>
 </tr>
