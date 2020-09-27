@@ -1,0 +1,71 @@
+/* Style the roulette */
+.roulette {
+	text-align: center;
+}
+
+/* Style the buttons that are used to open the roulette content */
+.roulette button {
+  display: inline-block;
+font-family: 'Titillium Web', sans-serif;
+font-size: 15px;
+text-transform: uppercase;
+color: #412814;
+text-align: right;
+font-weight: bold;
+background: #F7F6E2;
+letter-spacing: 3px;
+text-align: center;
+text-transform: uppercase;
+box-sizing: border-box;
+padding: 2px 4px;
+	height: 35px;
+	box-sizing: border-box;
+	border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+	margin: 4px;
+}
+
+/* Change background color of buttons on hover */
+.roulette button:hover {
+color: #242424;
+background: #ECEBD9;
+}
+
+/* Create an active/current "roulette button" class */
+.roulette button.active {
+background: #ECEBD9;
+letter-spacing: 3px;
+color: #412814;
+padding: 2px 0 2px 4px;
+	height: 35px;
+	box-sizing: border-box;
+}
+
+.roulette button.active:first-letter{
+color: #B79149;	
+	font-style: italic;
+}
+/* Style the roulette content */
+.roulettecontent {
+  width:100%;
+  border-left: none;
+	margin: auto;
+ animation: fadeEffect 1s;
+	display: none;
+	height: auto;
+	clear: both;
+	padding: 0;
+}
+
+/* Fade in roulettes */
+@-webkit-keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
