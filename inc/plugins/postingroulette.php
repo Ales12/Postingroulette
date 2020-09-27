@@ -68,44 +68,76 @@ function postingroulette_activate()
         'title' => 'postingroulette',
         'template' => $db->escape_string('<html>
 <head>
-<title>{$settings[\'bbname\']} - Posting Roulette</title>
+<title>{$mybb->settings['bbname']} - Posting Roulette</title>
 {$headerinclude}
 </head>
 <body>
-{$header}
-<table border="0" cellspacing="{$theme[\'borderwidth\']}" cellpadding="{$theme[\'tablespace\']}" class="tborder">
+{$header}<div class="roulette">
+<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder">
 <tr>
 <td class="thead"><h1>Posting Roulette</h1></td>
 </tr>
 <tr>
 <td class="trow1" align="center">
-<div id="posting">
-    <ul class="tabs">
-        <li>
-            <input type="radio" checked="checked" name="tabs" id="tab1">
-            <label for="tab1">Eintragen</label>
-            <div id="tab-content1" class="tab-content">
-{$pr_eintragen}
-        </div>
-      </li>
 
+  <button class="tablinks" onclick="roulette(event, 'Willkommen')" id="defaultOpen">Willkommen</button>
+  <button class="tablinks" onclick="roulette(event, 'Schüler')">Schüler</button>
+	  <button class="tablinks" onclick="roulette(event, 'Studenten')">Studenten</button>
+  <button class="tablinks" onclick="roulette(event, 'Erwachsene')">Erwachsene</button>
+		  <button class="tablinks" onclick="roulette(event, 'Beides')">Keine Präferenz</button>
 
-        <li>
-            <input type="radio" name="tabs" id="tab2">
-            <label for="tab2">Auswählen</label>
-            <div id="tab-content2" class="tab-content">
-{$pr_schueler}
-        </div>
-      </li>
-		
-    </ul>
-</div>
 </td>
 </tr>
-</table>
+	<tr><td class="trow1">
+<div id="Willkommen" class="roulettecontent">
+	<h1>Willkommen beim Postingroulette</h1>
+	<div class="smalltext">Du bist auf der Suche, mal mit jemand deren einen Play zu machen, als immer die gleichen? Dann bist du hier richtig. Entweder du trägst dich selbst ein oder aber schaust, wen dir der Würfel zuweist. Lass dich überraschen. <br />
+		Per PN oder aber auch Discord (insofern du es im Profil angegeben hast) könnt ihr euch über die Szene besprechen.
+	</div>
+	<h1>Charakter eintragen</h1>
+	{$pr_eintragen}
+		</div>
+		
+		<div id="Schüler" class="roulettecontent">
+	<h1>Charakterauswahl - Nur Schüler</h1>
+			{$pr_schueler}
+		</div>
+				<div id="Studenten" class="roulettecontent">
+	<h1>Charakterauswahl - Nur Studenten</h1>
+			{$pr_studenten}
+		</div>
+				<div id="Erwachsene" class="roulettecontent">
+	<h1>Charakterauswahl - Nur Erwachsene</h1>
+					{$pr_erwachsene}
+		</div>
+		
+						<div id="Beides" class="roulettecontent">
+	<h1>Charakterauswahl -Keine Präferenz</h1>
+							{$pr_beides}
+		</div>
+		</td></tr>
+	</table></div>
 {$footer}
 </body>
-</html>'),
+</html>		<!--Javascrtip-->
+	<script>
+function roulette(evt, userTag) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("roulettecontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(userTag).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>'),
         'sid' => '-1',
         'version' => '',
         'dateline' => TIME_NOW
